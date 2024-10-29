@@ -15,6 +15,15 @@ for (i in 1:10){
   plot(z, fits, main = paste("llr with ω =", i),  xlab= expression(z), ylab = expression(hat(f)(z)))
 }
 
+install.packages("bench")
+library(bench)
+result <- bench::mark(
+  llr_result = llr(z, x, y, omega)
+)
+
+cat("Execution time:/n")
+print(result)
+
 # We can see that the fit is getting more smoother when we increase the value of omega.
 # In locally weighted regression, the hyperparameter omega controls how much of the 
 # surrounding data influences the fit at any given point. Larger omega increases the size of 
