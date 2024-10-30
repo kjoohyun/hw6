@@ -1,4 +1,5 @@
 install.packages("reshape2", type = "binary")
+getwd()
 
 source("llr_functions.R")
 # Try out functions to see if it works on some data:
