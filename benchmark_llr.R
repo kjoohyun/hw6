@@ -13,8 +13,7 @@ fits = llr(z = z, x = french_fries$potato, y = french_fries$buttery, omega = 2)
 plot(z, fits)
 
 result <- microbenchmark(
-  llr_result = llr(z = z, x = french_fries$potato, y = french_fries$buttery, omega = 2),
-  times = 10
+  llr_result = llr(z = z, x = french_fries$potato, y = french_fries$buttery, omega = 2)
 )
 
 cat("Execution time for w =", i, ":\n")
