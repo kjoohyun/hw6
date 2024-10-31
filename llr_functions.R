@@ -8,8 +8,8 @@ llr = function(x, y, z, omega) {
 compute_f_hat = function(z, x, y, omega) {
   Wz = diag(make_weight_matrix(z, x, omega))
   X = make_predictor_matrix(x)
-  WX = apply(X, 2, function(col) col * Wz)
-  Wy = Wz * y
+  WX = sweep(X, 2, Wz[1,], `*`)
+  Wy = Wz %*% y
   f_hat = c(1, z) %*% solve(t(WX) %*% WX) %*% t(WX) %*% Wy
   return(f_hat)
 }
